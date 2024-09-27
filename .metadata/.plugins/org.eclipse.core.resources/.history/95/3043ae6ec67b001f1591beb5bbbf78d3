@@ -1,0 +1,6 @@
+package com.jdc.ms.test;
+
+public final class BiDirectionalMappingOnetoMany extends BaseTest{
+
+	
+}

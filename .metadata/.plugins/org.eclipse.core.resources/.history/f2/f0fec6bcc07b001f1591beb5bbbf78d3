@@ -1,0 +1,5 @@
+package com.jdc.ms.bm.entity;
+
+public class Player {
+
+}

@@ -1,0 +1,15 @@
+package com.jdc.rm.test;
+
+import org.junit.jupiter.api.Test;
+
+import jakarta.persistence.Persistence;
+
+public class RelationshipMappingTest {
+	
+	@Test
+	void test() {
+		try (var emf = Persistence.createEntityManagerFactory("rm");
+				var em = emf.createEntityManager()) {}
+	}
+
+}

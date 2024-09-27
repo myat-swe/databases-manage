@@ -1,0 +1,43 @@
+Elementary Mapping //wrapper type -> null;
+//primitive type -> not  null;
+byte  -> tinyint  not null; 
+short -> smallintnnot null;
+int   -> integernnot null;
+float -> folat(23n)not null;
+double -> float(5n3)not null;
+char  -> char(1)n
+boolean -> bitnnot null;
+String -> varchar(255)
+BigInteger -> decimal(38,0)
+BigDecimal -> decimal(38,2)
+
+array[]  type char -> varchar(255)
+all array[] type -> varbinary();
+
+
+
+
+		lDate date,
+        lTime time(6),
+        sqlDate date,
+        sqlTime time(6),
+        utilDate date,
+        ldTime datetime(6),
+        timestp datetime(6),
+        JDC One Stop Batch 10, [9/18/24 3:59 PM]
+
+
+JDC One Stop Batch 10, [9/18/24 3:59 PM]
+
+
+JDC One Stop Batch 10, [9/19/24 11:17 AM]
+varchar(20) check(phone regexp '^((\\+?959)|09)[0-9]{7,9}$)')
+
+@Column 
+name -> override column name (dafault  field name);
+unique -> override unuque constraint(default false);
+nullable : boolean -> set null or not null(default true);
+columnDefinition String -> set vendor specific sql column definition (not recommend).
+length : int -> only for String ;
+precision int -> only for exact numeric value(biginteger, bigdecimal),  for integer part;
+scale : int -> only for exact numeric value(biginteger, bigdecimal), for decimal part;

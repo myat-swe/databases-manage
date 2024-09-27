@@ -1,0 +1,22 @@
+CREATE USER IF NOT EXISTS 'onestop_user'@'localhost' IDENTIFIED WITH mysql_native_password BY 'onestoppass';
+
+GRANT ALL //PRIVILEGES// ON jdbc_db.* TO 'onestop_user'@'localhost';
+
+FLUSH PRIVITEGES;
+
+select user,host from mysql.user;//eg .user name select
+
+If error username => drop user if exists 'username'@'localhost';
+
+
+create table category (
+	id int primary key auto_increment,
+	name varchar(255) not null);
+
+
+	execute(String s) => DDL
+	executeQuery(String ) => Select
+	executeUpdate(String sql) => only for update,insert,delete;
+
+	242575
+	khinezinkyaw@mcdagmail.com

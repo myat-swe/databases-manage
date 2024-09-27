@@ -1,0 +1,252 @@
+
+
+select s.name,s.gender,c.phone,c.email,replace(a.location, "Township", "")location,r.reg_fees,r.reg_date,cou.name,cou.fees,cou.level from student s join contact c on s.contact_id = c.phone join address a on s.address_id = a.id join registration r on s.id = r.student_id join course cou on cou.id = r.course_id;
+select s.name,s.gender,c.phone,c.email,replace(a.location, "Township", "")location,r.reg_fees,r.reg_date,cou.name,cou.fees,cou.level from student s join contact c on s.contact_id = c.phone join address a on s.address_id = a.id join registration r on s.id = r.student_id join course cou on cou.id = r.course_id limit 10;
+select s.name,s.gender,c.phone,c.email,replace(a.location, "Township", "")location,r.reg_fees,r.reg_date,cou.name,cou.fees,cou.level from student s join contact c on s.contact_id = c.phone join address a on s.address_id = a.id join registration r on s.id = r.student_id join course cou on cou.id = r.course_id limit 20,10;
+select s.name,s.gender,c.phone,c.email,replace(a.location, "Township", "")location,r.reg_fees,r.reg_date,cou.name,cou.fees,cou.level from student s join contact c on s.contact_id = c.phone join address a on s.address_id = a.id join registration r on s.id = r.student_id join course cou on cou.id = r.course_id limit 70,10; //note id 70 => 10 name;
+select s.name,s.gender,c.phone,c.email,replace(a.location, "Township", "")location,r.reg_fees,r.reg_date,cou.name,cou.fees,cou.level from student s join contact c on s.contact_id = c.phone join address a on s.address_id = a.id join registration r on s.id = r.student_id join course cou on cou.id = r.course_id order by cou.name limit 10;
+mysql> select s.name,s.gender,c.phone,c.email,replace(a.location, "Township", "")location,r.reg_fees,r.reg_date,cou.name,cou.fees,cou.level from student s join contact c on s.contact_id = c.phone join address a on s.address_id = a.id join registration r on s.id = r.student_id join course cou on cou.id = r.course_id order by cou.name desc, r.reg_date asc limit 0,10;
+
+select name,fees,level,start_date, duration_in_hour from course where fees >(select avg(fees) from course);
+
+mysql> select name from module m  where m.course_id = (select c.id from course c where lower(c.name) =  lower('spring framework basics'));
+
+select m.name from module m where m.course_id in(select c.id from course c where lower(c.name) in (lower('spring framework basics'),lower('spring boot microservice')));
+select name from module m  where m.course_id in (select c.id from course c where lower(c.name) like lower('%spring%'));
+how many students have in that course;
+select course_id, count(student_id) from registration group by course_id;
+select c.name,r.course_id, count(r.student_id) from registration r join course c on c.id = r.course_id group by course_id;
+select c.name,r.reg_date,r.course_id, count(r.student_id) from registration r join course c on c.id = r.course_id group by course_id, r.reg_date;
+
+select c.name,c.level,count(r.student_id) from registration r join course c on c.id = r.course_id group by c.name ,c.level;
+
+select c.name, sum(r.reg_fees) total from registration r join course c on c.id = r.course_id group by c.name;
+
+select m.course_id,c.id,count(name) from module m join course c on c.id = m.course_id group by c.id;
+
+error select m.course_id c.id, c.name, count(m.id) from module m join course c on c.id = m.course_id group by c_id;
+
+select c.name, sum(r.reg_fees) total from registration r join course c on c.id = r.course_id where c.name like('%java%') OR c.name like('%spring%') group by c.name having total>=500000;
+
+
+ a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> 
+mysql> show variable like
+    -> 'autocommit';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'variable like
+'autocommit'' at line 1
+mysql> show variables like 'autocommit';
++---------------+-------+
+| Variable_name | Value |
++---------------+-------+
+| autocommit    | ON    |
++---------------+-------+
+1 row in set (0.24 sec)
+
+mysql> select @@Global.transcattion_isolation, @@transaction_isolation;
+ERROR 1193 (HY000): Unknown system variable 'transcattion_isolation'
+mysql> select @@Global.transcation_isolation, @@transaction_isolation;
+ERROR 1193 (HY000): Unknown system variable 'transcation_isolation'
+mysql> select @@Global>transaction_isolation, @@transaction_isolation;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '>transaction_isolation, @@transaction_isolation' at line 1
+mysql> select @@Global_transaction_isolation, @@transaction_isolation;
+ERROR 1193 (HY000): Unknown system variable 'Global_transaction_isolation'
+mysql> show variable like 'transaction_isolation';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'variable like 'transaction_isolation'' at line 1
+mysql> transaction;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'transaction' at line 1
+mysql> set transaction;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> 
+mysql> select @@Global_transaction_isolation, @@transaction_isolation;
+ERROR 1193 (HY000): Unknown system variable 'Global_transaction_isolation'
+mysql> transaction;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'transaction' at line 1
+mysql> select @@Global.transaction_isolation, @@transaction_isolation;
++--------------------------------+-------------------------+
+| @@Global.transaction_isolation | @@transaction_isolation |
++--------------------------------+-------------------------+
+| REPEATABLE-READ                | REPEATABLE-READ         |
++--------------------------------+-------------------------+
+1 row in set (0.00 sec)
+
+mysql> set global transaction isolation level read uncommitted;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select @@Global.transaction_isolation, @@transaction_isolation;
++--------------------------------+-------------------------+
+| @@Global.transaction_isolation | @@transaction_isolation |
++--------------------------------+-------------------------+
+| READ-UNCOMMITTED               | REPEATABLE-READ         |
++--------------------------------+-------------------------+
+1 row in set (0.00 sec)
+
+mysql> select * from address;
+ERROR 1046 (3D000): No database selected
+mysql> use one_db;
+Database changed
+mysql> show tables;
+Empty set (0.01 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| hr_db              |
+| information_schema |
+| mysql              |
+| one_db             |
+| os10_db            |
+| performance_schema |
+| product_db         |
+| relation_db        |
+| student1_db        |
+| student_db         |
+| studentone_db      |
+| sys                |
+| test_db            |
++--------------------+
+13 rows in set (0.00 sec)
+
+mysql> use studentone_db;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> show tables;
++-------------------------+
+| Tables_in_studentone_db |
++-------------------------+
+| address                 |
+| state                   |
++-------------------------+
+2 rows in set (0.01 sec)
+
+mysql> select * from address;
++----+------------------------+----------+
+| id | township               | state_id |
++----+------------------------+----------+
+|  1 | Tamwe Township         |        1 |
+|  2 | Bahan Township         |        1 |
+|  3 | Ahlone Township        |        1 |
+|  4 | Chanayethazan Township |        2 |
+|  5 | Aungmyethazan Township |        2 |
+|  6 | Mogok Township         |        2 |
+|  7 | Pathein Township       |       12 |
+|  8 | Hinthada Township      |       12 |
+|  9 | Bogale Township        |       12 |
+| 10 | Myitkyina Township     |        9 |
+| 11 | Bhamo Township         |        9 |
+| 12 | Myeik Township         |       11 |
+| 13 | Dawei Township         |       11 |
+| 14 | Kawthoung Township     |       11 |
+| 15 | Hpa-An Township        |        8 |
+| 16 | Myawaddy Township      |        8 |
+| 17 | Loikaw Township        |       10 |
+| 18 | Taunggyi Township      |        7 |
+| 19 | Nyaung Shwe Township   |        7 |
+| 20 | Lashio Township        |        7 |
+| 21 | Kalaw Township         |        7 |
+| 22 | Pyin Oo Lwin Township  |        2 |
+| 23 | Mawlamyine Township    |        5 |
+| 24 | Thaton Township        |        5 |
+| 25 | Kyaikmaraw Township    |        5 |
+| 26 | Sittwe Township        |        3 |
+| 27 | Thandwe Township       |        3 |
+| 28 | Mrauk U Township       |        3 |
+| 29 | Magway Township        |        4 |
+| 30 | Pakokku Township       |        4 |
+| 31 | Chauk Township         |        4 |
+| 32 | Naypyidaw Township     |        6 |
+| 33 | Pyinmana Township      |        6 |
+| 34 | Zabuthiri Township     |        6 |
+| 35 | Yangon Downtown        |        1 |
+| 36 | Thingangyun Township   |        1 |
+| 37 | Hlaing Township        |        1 |
+| 38 | Insein Township        |        1 |
+| 39 | Dagon Township         |        1 |
++----+------------------------+----------+
+39 rows in set (0.00 sec)
+
+mysql> insert into address values('hlaing',1);
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into address (townsip,state_id) values('hlaing',1);
+ERROR 1054 (42S22): Unknown column 'townsip' in 'field list'
+mysql> insert into address(township,state_id) values ('haling',1);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> commit;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> insert into address(township,state_id) values ('h',1);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> begin;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> insert into address(township,state_id) values ('ha',1);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from address;
++----+------------------------+----------+
+| id | township               | state_id |
++----+------------------------+----------+
+|  1 | Tamwe Township         |        1 |
+|  2 | Bahan Township         |        1 |
+|  3 | Ahlone Township        |        1 |
+|  4 | Chanayethazan Township |        2 |
+|  5 | Aungmyethazan Township |        2 |
+|  6 | Mogok Township         |        2 |
+|  7 | Pathein Township       |       12 |
+|  8 | Hinthada Township      |       12 |
+|  9 | Bogale Township        |       12 |
+| 10 | Myitkyina Township     |        9 |
+| 11 | Bhamo Township         |        9 |
+| 12 | Myeik Township         |       11 |
+| 13 | Dawei Township         |       11 |
+| 14 | Kawthoung Township     |       11 |
+| 15 | Hpa-An Township        |        8 |
+| 16 | Myawaddy Township      |        8 |
+| 17 | Loikaw Township        |       10 |
+| 18 | Taunggyi Township      |        7 |
+| 19 | Nyaung Shwe Township   |        7 |
+| 20 | Lashio Township        |        7 |
+| 21 | Kalaw Township         |        7 |
+| 22 | Pyin Oo Lwin Township  |        2 |
+| 23 | Mawlamyine Township    |        5 |
+| 24 | Thaton Township        |        5 |
+| 25 | Kyaikmaraw Township    |        5 |
+| 26 | Sittwe Township        |        3 |
+| 27 | Thandwe Township       |        3 |
+| 28 | Mrauk U Township       |        3 |
+| 29 | Magway Township        |        4 |
+| 30 | Pakokku Township       |        4 |
+| 31 | Chauk Township         |        4 |
+| 32 | Naypyidaw Township     |        6 |
+| 33 | Pyinmana Township      |        6 |
+| 34 | Zabuthiri Township     |        6 |
+| 35 | Yangon Downtown        |        1 |
+| 36 | Thingangyun Township   |        1 |
+| 37 | Hlaing Township        |        1 |
+| 38 | Insein Township        |        1 |
+| 39 | Dagon Township         |        1 |
+| 40 | haling                 |        1 |
+| 41 | h                      |        1 |
+| 42 | ha                     |        1 |
++----+------------------------+----------+
+42 rows in set (0.00 sec)
+
+mysql> commit;
+Query OK, 0 rows affected (0.00 sec)
+
+
+update reg_fees in last row => fees_update
+insert records; => savepoint_record_one;
+insert records; => savepoint_record_two;
+delete mininum student_id;
+rollback to update fees;
