@@ -10,4 +10,6 @@ public class CollectionMappingTest {
 	void test() {
 		Persistence.createEntityManagerFactory("cm").close();
 	}
+	
+	
 }

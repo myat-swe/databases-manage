@@ -1,0 +1,4 @@
+Myat Swe,100000;
+U Kyaw Kyaw Lwin, 700000;
+U Min Khant, 600000;
+Mg Pyae Phyo, 300000;

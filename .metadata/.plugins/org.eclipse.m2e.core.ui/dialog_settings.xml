@@ -2,6 +2,8 @@
 <section name="Workbench">
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="/home/lenovo/batch-10/database/jakarta-persistence/10-callback-listinerss"/>
+			<item value="/home/lenovo/batch-10/database/jakarta-persistence/12-leaner"/>
 			<item value="/home/lenovo/batch-10/database/jakarta-persistence/06-bydirectional-mapping/src/test/java/com/jdc/ms/test/BiDirectionalMappingTest.java"/>
 			<item value="/home/lenovo/batch-10/database/jakarta-persistence/06-bydirectional-mapping/src/test/java/com/jdc/ms/test/BiDirectionalMappingOnetoMany.java"/>
 			<item value="/home/lenovo/batch-10/database/jdbc01_first_cup"/>
@@ -16,7 +18,7 @@
 		</list>
 	</section>
 	<section name="MavenProjectWizardArchetypePage">
-		<item key="catalog" value="https://repo1.maven.org/maven2/archetype-catalog.xml"/>
+		<item key="catalog" value="defaultLocal"/>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
 			<item value="[artifactId]-TRUNK"/>
@@ -28,13 +30,10 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
-			<item value="org.07.inher.map"/>
 		</list>
 		<list key="groupId">
-			<item value="com.jdc.jpa"/>
 		</list>
 		<list key="artifactId">
-			<item value="07-inher-map"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -45,18 +44,19 @@
 			<item value="[name]"/>
 		</list>
 		<list key="version">
-			<item value="1.0"/>
+			<item value="0.0.1-SNAPSHOT"/>
 		</list>
 	</section>
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
-			<item value="com.jdc.jpa"/>
+			<item value="com.jdc.ml"/>
+			<item value="com.jdc.fullstack"/>
 		</list>
 		<list key="name">
 		</list>
 		<list key="artifactId">
-			<item value="07-inher-map"/>
-			<item value="jakarta-persistence"/>
+			<item value="jpa_collection"/>
+			<item value="getting-jpa"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -68,6 +68,7 @@
 		</list>
 		<list key="version">
 			<item value="1.0"/>
+			<item value="0.0.1-SNAPSHOT"/>
 		</list>
 	</section>
 	<section name="org.eclipse.m2e.core.pom.overview">
@@ -84,6 +85,11 @@
 	</section>
 	<section name="MavenModuleWizardParentPage">
 		<list key="moduleName">
+			<item value="12-leaner"/>
+			<item value="11-id-and-mapid"/>
+			<item value="10-callback-listener"/>
+			<item value="08-entmanager"/>
+			<item value="08-entitymanager"/>
 			<item value="07-inher-map"/>
 			<item value="07-inheri-mapping"/>
 			<item value="ep01-"/>
@@ -102,6 +108,26 @@
 			<item value="[groupId].[artifactId]"/>
 			<item value="[groupId].[artifactId]-[version]"/>
 			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.ui.internal.wizards.MavenProjectSelectionDialog">
+		<item key="width" value="480"/>
+		<item key="height" value="606"/>
+		<item key="x" value="20"/>
+		<item key="y" value="20"/>
+	</section>
+	<section name="org.eclipse.m2e.core.ui.internal.wizards.CustomArchetypeDialog">
+		<list key="archetypeGroupId">
+			<item value="getting-jpa"/>
+		</list>
+		<list key="archetypeArtifactId">
+			<item value="com.jdc.fullstack"/>
+		</list>
+		<list key="archetypeVersion">
+			<item value="1.o"/>
+		</list>
+		<list key="repositoryUrl">
+			<item value=""/>
 		</list>
 	</section>
 </section>

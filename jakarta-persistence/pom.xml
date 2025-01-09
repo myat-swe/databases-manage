@@ -1,3 +1,4 @@
+
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -57,5 +58,10 @@
 		<module>06-bydirectional-mapping</module>
 		
 		<module>07-inher-map</module>
+		
+		<module>08-entmanager</module>
+		<module>10-callback-listener</module>
+		<module>11-id-and-mapid</module>
+		<module>12-leaner</module>
 	</modules>
 </project>

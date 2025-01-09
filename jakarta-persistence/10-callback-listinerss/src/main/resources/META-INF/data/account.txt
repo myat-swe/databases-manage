@@ -1,0 +1,3 @@
+Min Lwin, 100000;
+Pyae Phyo, 200000;
+Min Khant, 300000;
