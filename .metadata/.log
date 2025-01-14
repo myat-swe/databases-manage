@@ -7422,3 +7422,6 @@ org.eclipse.jgit.errors.TransportException: https://github.com/myat-swe/database
 
 !ENTRY org.eclipse.egit.ui 4 0 2025-01-14 09:24:20.808
 !MESSAGE Can't connect to any repository: 
+
+!ENTRY org.eclipse.egit.ui 4 0 2025-01-14 09:24:42.055
+!MESSAGE Can't connect to any repository: 
