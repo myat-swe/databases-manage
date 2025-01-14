@@ -30,6 +30,33 @@ public class Person implements Serializable{
 	private String name;
 	private LocalDate dob;
 	
+	
+	
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public LocalDate getDob() {
+		return dob;
+	}
+
+	public void setDob(LocalDate dob) {
+		this.dob = dob;
+	}
+
 	@AttributeOverride(column = @Column(name = "primary_township"), name = "township")
 	@AttributeOverride(column = @Column(name = "primary_state"), name = "state")
 	private Address primaryAddress;

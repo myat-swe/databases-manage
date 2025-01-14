@@ -24,5 +24,23 @@ public class Sale implements Serializable{
 
 	private double total;
 	private float taxInPercent;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public double getTotal() {
+		return total;
+	}
+	public void setTotal(double total) {
+		this.total = total;
+	}
+	public float getTaxInPercent() {
+		return taxInPercent;
+	}
+	public void setTaxInPercent(float taxInPercent) {
+		this.taxInPercent = taxInPercent;
+	}
 
 }

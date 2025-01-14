@@ -31,23 +31,23 @@ public class EntityManagerTest extends BaseTest{
 			    "Angular Signal");
 		//transient or new state
 		var course = new Course();
-		course.setName("Angular Framework");
-		course.setFees(new BigDecimal(450_000d));
-		course.setStartDate(LocalDate.of(2024, 10, 04));
-		course.setLevel(Level.INTERMEDIATE);
-		course.setDuration(4);
+//		course.setName("Angular Framework");
+//		course.setFees(new BigDecimal(450_000d));
+//		course.setStartDate(LocalDate.of(2024, 10, 04));
+//		course.setLevel(Level.INTERMEDIATE);
+//		course.setDuration(4);
 		//course.setOutline(outlines);
 		em.getTransaction().begin();
 	
 		assertFalse(em.contains(course));
 		em.persist(course);
 		assertTrue(em.contains(course));
-		course.setFees(new BigDecimal(500_000d));
+//		course.setFees(new BigDecimal(500_000d));
 		
 		em.detach(course);
 		assertFalse(em.contains(course));
 		
-		course.setDuration(3);
+//		course.setDuration(3);
 		
 		var mergedCourse = em.merge(course);
 		assertTrue(em.contains(mergedCourse));
